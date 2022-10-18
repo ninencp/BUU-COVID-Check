@@ -375,4 +375,4 @@ def upload_image():
 
 # start app
 if __name__ == "__main__":
-    app.run(port=2000, debug=True)
+    app.run(port=5000, debug=True)
