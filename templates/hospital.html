@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+table {
+    border: solid 3px rgb(0, 0, 0);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4a4a4a;
+    color: white;
+}
+</style>
+<body>
+<div class="container">
+
+
+<table id="myTable" class="table">
+    <thead>
+    <tr>
+        <th>ชื่อโรงพยาบาล</th>
+        <th>เบอร์โทร</th>
+        <th>จำนวนเตียง</th>
+        <th>ค่าบริการ</th>
+        <th>ตำเเหน่ง</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>โรงพยาบาลมหาวิทยาลัยบูรพา</td>
+        <td>038 394 850</td>
+        <td>473/500</td>
+        <td>4,000 บ.</td>
+        <td><a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B8%9A%E0%B8%B9%E0%B8%A3%E0%B8%9E%E0%B8%B2/@13.2858312,100.9225658,17.3z/data=!4m12!1m6!3m5!1s0x0:0xddab16c2fd482!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4Lia4Li54Lij4Lie4Liy!8m2!3d13.285218!4d100.922264!3m4!1s0x0:0xddab16c2fd482!8m2!3d13.285218!4d100.922264">เเผนที่</a></td>
+        
+      </tr>
+      <tr>
+        <td>โรงพยาบาลสมเด็จพระบรมราชเทวี ณ ศรีราชา</td>
+        <td>038 320 200</td>
+        <td>468/500</td>
+        <td>3,000 - 3,500 บ.</td>
+        <td><a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%AA%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B9%87%E0%B8%88%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%A3%E0%B8%A1%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B9%80%E0%B8%97%E0%B8%A7%E0%B8%B5+%E0%B8%93+%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%B2/@13.1618315,100.9184756,15z/data=!4m5!3m4!1s0x0:0x380865c07fa68840!8m2!3d13.1618315!4d100.9184756">เเผนที่</a></td>
+      
+      </tr>
+      <tr>
+        <td>โรงพยาบาลสมิติเวช ชลบุรี</td>
+        <td>033 038 888</td>
+        <td>723/824</td>
+        <td>12,000 บ.</td>
+        <td><a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%AA%E0%B8%A1%E0%B8%B4%E0%B8%95%E0%B8%B4%E0%B9%80%E0%B8%A7%E0%B8%8A+%E0%B8%8A%E0%B8%A5%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5/@13.344861,100.9761004,15z/data=!4m5!3m4!1s0x0:0xf03d84bc0dd45c0!8m2!3d13.344861!4d100.9761004">เเผนที่</a></td>
+       
+      </tr>
+      <tr>
+        <td>โรงพยาบาลสมเด็จพระนางเจ้าสิริกิติ์</td>
+        <td>038 245 375</td>
+        <td>892/1000</td>
+        <td>3,000 บ.</td>
+        <td><a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%AA%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B9%87%E0%B8%88%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%99%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AA%E0%B8%B4%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B4%E0%B8%95%E0%B8%B4%E0%B9%8C/@12.6882718,100.9815846,15z/data=!4m2!3m1!1s0x0:0x4462d900167a3dcb?sa=X&ved=2ahUKEwiT-aOux8T6AhV2-jgGHcwbD1cQ_BJ6BAhjEAU">เเผนที่</a></td>
+       
+      </tr>
+      <tr>
+        <td>โรงพยาบาลกรุงเทพพัทยา</td>
+        <td>038 259 999</td>
+        <td>319/400</td>
+        <td>8,000 บ.</td>
+        <td><a href="https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%9E%E0%B8%B1%E0%B8%97%E0%B8%A2%E0%B8%B2/@12.9538246,100.9055495,15z/data=!4m2!3m1!1s0x0:0x81a466188fa77aa6?sa=X&ved=2ahUKEwiI9aWGyMT6AhUP9zgGHYeqAikQ_BJ6BAg6EAU">เเผนที่</a></td>
+        
+    </tbody>
+</table>
+
+</div>
+
+</body>
+
+<script src="../static/js/main.js"></script>
+</html>

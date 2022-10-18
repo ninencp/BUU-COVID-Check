@@ -1,0 +1,68 @@
+{% extends "layout_members.html" %}
+{% block title %}Profile - {{username}}{% endblock %}
+{% block body %}
+    <section class="vh-100" style="background-color: #f4f5f7;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-lg-6 mb-4 mb-lg-0">
+                    <div class="card mb-3" style="border-radius: .5rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4 gradient-custom text-center text-white"
+                                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                <h5>Username : {{username}}</h5>
+                                <p>{{account['name']}}</p>
+                                <a href="/edit/{{account.id}}"><i class="far fa-edit mb-5" style="color:white"></i></a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <h6>ข้อมูลส่วนตัว</h6>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                        <h6>Email</h6>
+                                        <p class="text-muted">{{account['email']}}</p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                        <h6>Phone</h6>
+                                        <p class="text-muted">{{account['phone']}}</p>
+                                        </div>
+                                    </div>
+                                    <h6>สถานะ</h6>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                        <h6>ส่งผลตรวจล่าสุด</h6>
+                                        {% if atk %}
+                                            <p class="text-muted">{{atk['send_date']}}</p>
+                                            <p class="text-muted" style="font-size: 90%">สถานที่ที่คาดว่าได้รับเชื้อ <br>{{atk['faculties.name']}}</p>
+                                        {% else %}
+                                            <p class="text-muted"></p>
+                                        {% endif %}
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                        <h6>ควรกักตัวอีกเป็นเวลา</h6>
+                                        {% if atk %}
+                                            <p class="text-muted">{{isolation}} วัน</p>
+                                        {% else %}
+                                            <p class="text-muted"></p>
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-start">
+                                        {% if atk %}
+                                            <a href="{{ url_for('Submit')}}" class="btn btn-primary shadow disabled" role="button">ส่งผลตรวจกรณีได้รับเชื้อ</a>
+                                        {% else %}
+                                            <a href="{{ url_for('Submit')}}" class="btn btn-primary shadow" role="button">ส่งผลตรวจกรณีได้รับเชื้อ</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

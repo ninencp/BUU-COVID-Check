@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block title %}FAQ{% endblock %}
+{% block nav3 %}<a class="nav-link me-lg-3 active bg-transparent" href="{{ url_for('Faqs') }}">FAQ</a>{% endblock %}
+{% block body %}
+    <header class="masthead">
+        <div class="container px-5">
+            <div class="row">
+                <div class="col">
+                    <div class="fs-2 mb-3">
+                        <i class="bi bi-envelope-paper" style="color:orange"></i>
+                        FAQ <span class="text-black-50" style="font-size: 25px;">คำถามที่พบบ่อยเกี่ยวกับ COVID-19</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ section -->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="fs-2 mb-3">
+                    1. อาการคนที่ติดโควิดเป็นยังไง ?
+                    <i class="bi bi-chat-dots-fill collapsible" type="button" style="color:lightgreen; font-size: 75%;"></i>
+                    <div class="content">
+                        <p style="font-size:18px" class="justify-content-between">ประกอบด้วยอาการไข้ ไอ และอ่อนเพลีย <br>
+                            ผู้ป่วยบางรายยังมีอาการปวดเมื่อย คัดจมูก น้ำมูกไหล เจ็บคอ หรือท้องเสีย บางคนอาจป่วยหนักและหายใจลำบาก <br> 
+                            ผู้สูงอายุและผู้ที่มีโรคประจำตัวอยู่เดิม เช่น โรคหัวใจ ความดันโลหิตสูง หรือโรคเบาหวาน มีความเสี่ยงที่จะติดได้ง่ายกว่าคนทั่วไป</p>
+                    </div>  
+                </div>
+                <div class="fs-2 mb-3">
+                    2. ยาตัวไหนที่รักษาโควิดได้บ้าง ?
+                    <i class="bi bi-chat-dots-fill collapsible" type="button" style="color:lightgreen; font-size: 75%;"></i>
+                    <div class="content">
+                        <p style="font-size:18px" class="justify-content-between">
+                            - ยาประจำตัว สำหรับผู้ที่มีโรคประจำตัว<br>
+                            - ยาพาราเซตามอล<br>
+                            - ยาฟ้าทะลายโจร<br>
+                            - ยาแก้ไอแบบเม็ด Dextromethorphan <br>
+                            - ยาลดน้ำมูก Chlorpheniramine <br>
+                            - ยาแก้แพ้ Fexofenadine <br>
+                            - ผงเกลือแร่ ORS (Oral Rehydration Salts)
+                        </p>
+                    </div>  
+                </div>
+                <div class="fs-2 mb-3">
+                    3. เมื่อต้องกักตัวอยู่บ้าน ควรเตรียมตัวยังไงดี ?
+                    <i class="bi bi-chat-dots-fill collapsible" type="button" style="color:lightgreen; font-size: 75%;"></i>
+                    <div class="content">
+                        <p style="font-size:18px" class="justify-content-between">
+                            1. อุปกรณ์ทานอาหารส่วนตัว (ช้อนส้อม จานชาม แก้วน้ำ) <br>
+                            2. ถุงขยะแยกสีสำหรับแยกขยะติดเชื้อ <br> 
+                            3. หน้ากากอนามัย ควรสวมตลอดเวลาเมื่อไม่ได้อยู่คนเดียว <br>
+                            4. ยาสามัญประจำบ้าน <br>
+                            5. สบู่ เจลล้างมือ <br>
+                            6. แอลกอฮอล์ฆ่าเชื้อ 70% สำหรับเช็ด หลังสัมผัสสิ่งของต่าง ๆ <br>
+                            7. ปรอทวัดไข้ เครื่องวัดออกซิเจน <br>
+                            8. ของใช้ส่วนตัวอื่น ๆ
+                        </p>
+                    </div>  
+                </div>
+                <div class="fs-2 mb-3">
+                    4. จะป้องกันตัวเองจากการติดเชื้อได้ยังไงบ้าง ?
+                    <i class="bi bi-chat-dots-fill collapsible" type="button" style="color:lightgreen; font-size: 75%;"></i>
+                    <div class="content">
+                        <p style="font-size:18px" class="justify-content-between">
+                            - ล้างมืออย่างสม่ำเสมอ <br>
+                            - ไม่นำมือไปจับหน้า ปาก จมูก ถ้าจำเป็นควรล้างมือให้สะอาดก่อน <br> 
+                            - เว้นระยะห่างทางสังคม <br>
+                            - ทำความสะอาดสภาพแวดล้อมรอบตัว โดยเฉพาะบริเวณที่อาจปนเปื้อนสารคัดหลั่ง
+                        </p>
+                    </div>  
+                </div>
+                <div class="fs-2 mb-3">
+                    5. เมื่อติดโควิดแล้วต้องกักตัวกี่วัน ?
+                    <i class="bi bi-chat-dots-fill collapsible" type="button" style="color:lightgreen; font-size: 75%;"></i>
+                    <div class="content">
+                        <p style="font-size:18px" class="justify-content-between">ปัจจุบันมีกำหนดให้กักตัวเป็นเวลา 10 วัน</p>
+                    </div>  
+                </div>
+                <div class="fs-2 mb-3">
+                    6. ถ้าต้องกักตัวที่บ้าน แต่ว่ามีสมาชิกในครอบครัวอยู่ด้วย ควรทำยังไง ?
+                    <i class="bi bi-chat-dots-fill collapsible" type="button" style="color:lightgreen; font-size: 75%;"></i>
+                    <div class="content">
+                        <p style="font-size:18px" class="justify-content-between">
+                            1. ควรแยกตัวอยู่ในห้องคนเดียวจนครบกำหนด 10 วัน<br>
+                            2. แยกห้องน้ำหากเป็นไปได้ ในกรณีที่ต้องใช้ร่วมกับผู้อื่น ให้ใช้ห้องน้ำเป็นคนสุดท้าย แล้วทำความสะอาด ปิดฝาชักโครกก่อนกดทุกครั้ง <br> 
+                            3. หลีกเลี่ยงการพูดคุยกันโดยไม่สวมหน้ากากอนามัย หากต้องคุยกันควรเว้นระยะห่าง และสวมหน้ากากอนามัยตลอดเวลา <br>
+                            4. ไม่รับประทานอาหาร หรือใช้ของร่วมกัน <br>
+                        </p>
+                    </div>  
+                </div>
+                
+            </div>
+        </div>
+    </section>
+{% endblock %}
