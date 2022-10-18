@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
-from flaskext.mysql import MySQL
-import pymysql
+import os
 import re
 
-import os
+import pymysql
+from flask import (Flask, flash, redirect, render_template, request, session,
+                   url_for)
+from flaskext.mysql import MySQL
 from werkzeug.utils import secure_filename
 
 #--- Folder to upload atk img ----#
