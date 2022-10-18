@@ -32,23 +32,21 @@
                                     <h6>สถานะ</h6>
                                     <hr class="mt-0 mb-4">
                                     <div class="row pt-1">
-                                        <div class="col-6 mb-3">
-                                        <h6>ส่งผลตรวจล่าสุด</h6>
-                                        {% if atk %}
-                                            <p class="text-muted">{{atk['send_date']}}</p>
-                                            <p class="text-muted" style="font-size: 90%">สถานที่ที่คาดว่าได้รับเชื้อ <br>{{atk['faculties.name']}}</p>
+                                        {%  if atk %}
+                                            <div class="col-6 mb-3">
+                                            <h6>ส่งผลตรวจล่าสุด</h6>
+                                                <p class="text-muted">{{atk['send_date']}}</p>
+                                                <p class="text-muted" style="font-size: 90%">สถานที่ที่คาดว่าได้รับเชื้อ <br>{{atk['faculties.name']}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                            <h6>ควรกักตัวอีกเป็นเวลา</h6>
+                                                <p class="text-muted">{{isolation}} วัน</p>
+                                            </div>
                                         {% else %}
-                                            <p class="text-muted">ยังไม่ติดเชื้อ/กักตัวครบแล้ว</p>
+                                            <div class="col mb-3">
+                                                <p class="text-muted">ยังไม่ติดเชื้อ / กักตัวครบแล้ว</p>
+                                            </div>
                                         {% endif %}
-                                        </div>
-                                        <div class="col-6 mb-3">
-                                        <h6>ควรกักตัวอีกเป็นเวลา</h6>
-                                        {% if atk %}
-                                            <p class="text-muted">{{isolation}} วัน</p>
-                                        {% else %}
-                                            <p class="text-muted"></p>
-                                        {% endif %}
-                                        </div>
                                     </div>
                                     <div class="d-flex justify-content-start">
                                         {% if atk %}
