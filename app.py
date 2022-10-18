@@ -322,9 +322,10 @@ def upload_image():
         send = request.form['date']
         faculty = request.form['faculty']
         print(faculty)
-        f_ID = cursor.execute("SELECT id FROM faculties WHERE name = %s",(faculty))
-        print(f_ID)
-        cursor.execute("INSERT INTO atk(send_date, userID, end_date, facultyID) VALUES(%s,%s,DATE_ADD(%s,INTERVAL 10 DAY),%s)", (send,uID,send,f_ID))
+        cursor.execute("SELECT id FROM faculties WHERE name = %s",faculty)
+        f_ID = cursor.fetchone()
+        print(f_ID['id'])
+        cursor.execute("INSERT INTO atk(send_date, userID, end_date, facultyID) VALUES(%s,%s,DATE_ADD(%s,INTERVAL 10 DAY),%s)", (send,uID,send,f_ID['id']))
 
         cursor.execute("SELECT id FROM atk WHERE userID = %s", [session['id']])
         val = cursor.fetchone()
