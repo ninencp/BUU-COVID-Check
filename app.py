@@ -38,13 +38,18 @@ def Index():
     cursor.execute("SELECT atk.send_date, atk.end_date, atk.id, atk.facultyID, faculties.name\
                     FROM atk\
                     INNER JOIN faculties ON atk.facultyID=faculties.id")
-    atk_data = cursor.fetchall()
-    print(atk_data)
-    # cursor.execute("SELECT faculties.name, atk.userID\
-    #                 FROM atk\
-    #                 INNER JOIN faculties ON atk.facultyID=faculties.ID")
-    # covidPlace = cursor.fetchall()
-    # print("data =",covidPlace)
+    atk = cursor.fetchall()
+    print(atk)
+
+    cur_date = []
+    for atk_data in atk:
+        cursor.execute("SELECT DATEDIFF(%s,CURDATE()) as end, %s as id",(atk_data['end_date'],atk_data['id']))
+        cur_date.append(cursor.fetchone())
+    print(cur_date)
+
+    for date in cur_date:
+        isolation = date['end']
+        print('isolation =',isolation)
 
     cursor.close()
     return render_template("index.html", value=data)
