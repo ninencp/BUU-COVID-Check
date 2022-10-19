@@ -239,7 +239,7 @@ def Profile():
             cur_date = cursor.fetchone()
             isolation=cur_date['end']
             
-            if isolation > 0:
+            if isolation >= 0:
                 return render_template('profile.html', account = account, username=session['username'], atk=atk_data, isolation=isolation)
             else:
                 return render_template('profile.html', account = account, username=session['username'], atk=atk_data)
