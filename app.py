@@ -51,6 +51,12 @@ def Index():
         isolation = date['end']
         print('isolation =',isolation)
 
+        if isolation <= 0:
+            cursor.execute("DELETE FROM atk_img WHERE aID=%s",date['id'])
+            cursor.execute("DELETE FROM atk WHERE id=%s",date['id'])
+            db.commit()
+
+
     cursor.close()
     return render_template("index.html", value=data)
 
@@ -229,16 +235,13 @@ def Profile():
         atk_data = cursor.fetchone()
 
         if atk_data:
-            cursor.execute("SELECT DATEDIFF(%s,CURDATE())",(atk_data['end_date']))
+            cursor.execute("SELECT DATEDIFF(%s,CURDATE()) as end",(atk_data['end_date']))
             cur_date = cursor.fetchone()
-            isolation=list(cur_date.values())[0]
+            isolation=cur_date['end']
             
             if isolation > 0:
                 return render_template('profile.html', account = account, username=session['username'], atk=atk_data, isolation=isolation)
             else:
-                cursor.execute("DELETE FROM atk_img WHERE aID=%s",[atk_data['id']])
-                cursor.execute("DELETE FROM atk WHERE userID=%s",[session['id']])
-                conn.commit()
                 return render_template('profile.html', account = account, username=session['username'], atk=atk_data)
 
         else:
