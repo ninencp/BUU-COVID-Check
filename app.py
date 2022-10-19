@@ -212,8 +212,8 @@ def Logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
-    # Redirect to index
-    return redirect(url_for('Index'))
+    # Redirect to Login Page
+    return redirect(url_for('Login'))
 
 @app.route("/profile")
 def Profile():
