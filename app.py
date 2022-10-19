@@ -35,11 +35,16 @@ def Index():
     cursor.execute("SELECT COUNT(id) FROM atk")
     data = cursor.fetchall()
 
-    cursor.execute("SELECT faculties.name, atk.userID\
+    cursor.execute("SELECT atk.send_date, atk.end_date, atk.id, atk.facultyID, faculties.name\
                     FROM atk\
-                    INNER JOIN faculties ON atk.facultyID=faculties.ID")
-    covidPlace = cursor.fetchall()
-    print(covidPlace)
+                    INNER JOIN faculties ON atk.facultyID=faculties.id")
+    atk_data = cursor.fetchall()
+    print(atk_data)
+    # cursor.execute("SELECT faculties.name, atk.userID\
+    #                 FROM atk\
+    #                 INNER JOIN faculties ON atk.facultyID=faculties.ID")
+    # covidPlace = cursor.fetchall()
+    # print("data =",covidPlace)
 
     cursor.close()
     return render_template("index.html", value=data)
@@ -68,9 +73,9 @@ def Infected():
 #             totalRecords = rsallcount['allcount']
 #             print(totalRecords)
 
-#             cursor.execute("SELECT atk.send_date, atk.end_date, atk.id, atk.facultyID, faculties.name\
-#                         FROM atk\
-#                         INNER JOIN faculties ON atk.facultyID=faculties.ID")
+#             cursor.execute("SELECT faculties.name, atk.userID\
+#                             FROM atk\
+#                             INNER JOIN faculties ON atk.facultyID=faculties.ID")
 #             covidPlace = cursor.fetchall()
 
 #             likeString = "%" + searchValue + "%"
@@ -235,7 +240,7 @@ def Profile():
             return render_template('profile.html', account = account, username=session['username'], atk=atk_data)
     # user isn't logged in return to index page
     return redirect(url_for('Index'))
-
+ 
 @app.route("/edit/<id>", methods=['GET','POST'])
 def GetUser(id):
     conn = mysql.connect()
