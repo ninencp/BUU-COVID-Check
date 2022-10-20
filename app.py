@@ -69,16 +69,19 @@ def Infected():
     conn = mysql.connect()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
 
-    cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID GROUP BY faculties.name")
+    cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID GROUP BY faculties.name DESC")
     covidPlace = cursor.fetchall()
     print(covidPlace)
 
     data=[]
+    i=1
     for row in covidPlace:
         data.append({
+                    'num':i,
                     'faculty':row['name'],
                     'infected':row['total']
                     })
+        i+=1
 #     # try:
 #         conn = mysql.connect()
 #         cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -104,7 +107,7 @@ def Infected():
 
 #             likeString = "%" + searchValue + "%"
 #             cursor.execute("SELECT count(*) as allcount WHERE name LIKE %s OR position LIKE %s OR ")
-    return render_template("infected.html",data=data)
+    return render_template("infected.html",data=data,range_data=len(data))
 
 # http://127.0.0.1:3000/login <-- login page
 

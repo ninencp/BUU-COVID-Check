@@ -39,16 +39,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for data in data %}
                     <tr>
-                        <th>1</th>
-                        <td>สถาบันวิทยาศาสตร์ทางทะเล</td>
-                        <td>1</td>
+                        <th>{{data['num']}}</th>
+                        <td>{{data['faculty']}}</td>
+                        <td>{{data['infected']}}</td>
                     </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>คณะวิทยาการสารสนเทศ</td>
-                        <td>2</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div><!-- End: Features Cards -->
