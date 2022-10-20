@@ -70,6 +70,9 @@ def Infected():
     cursor = conn.cursor(pymysql.cursors.DictCursor)
     search=''
 
+    cursor.execute("SELECT COUNT(id) as num FROM atk")
+    num = cursor.fetchone()
+
     if request.method == 'POST':
         search = request.form['Search']   
         likeString = "%" + search + "%"
@@ -92,32 +95,13 @@ def Infected():
                     'infected':row['total']
                     })
         i+=1
-#     # try:
-#         conn = mysql.connect()
-#         cursor = conn.cursor(pymysql.cursors.DictCursor)
-#         if request.method == 'POST':
-#             draw = request.form('draw')
-#             row = int(request.form['start'])
-#             rowperpage = int(request.form('length'))
-#             searchValue = request.form("search[value]")
-#             print(draw)
-#             print(row)
-#             print(rowperpage)
-#             print(searchValue)
 
-#             cursor.execute("SELECT count(*) as allcount from atk")
-#             rsallcount = cursor.fetchone()
-#             totalRecords = rsallcount['allcount']
-#             print(totalRecords)
-
-#             cursor.execute("SELECT faculties.name, atk.userID\
-#                             FROM atk\
-#                             INNER JOIN faculties ON atk.facultyID=faculties.ID")
-#             covidPlace = cursor.fetchall()
-
-#             likeString = "%" + searchValue + "%"
-#             cursor.execute("SELECT count(*) as allcount WHERE name LIKE %s OR position LIKE %s OR ")
-    return render_template("infected.html",data=data)
+    # Check if user is logged in
+    if 'loggedin' in session:
+        # if user logged in show them homepage
+        return render_template('infected_members.html', username=session['username'], data=data,num=num)
+    
+    return render_template("infected.html",data=data,num=num)
 
 # http://127.0.0.1:3000/login <-- login page
 
