@@ -217,10 +217,16 @@ def MemFaq():
 
 @app.route("/hospital")
 def hospital():
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    cursor.execute("SELECT * FROM hospital")
+    hospital = cursor.fetchall()
+    print(hospital)
     # Check if user is logged in
     if 'loggedin' in session:
         # if user logged in show them homepage
-        return render_template('hospital.html', username=session['username'])
+        return render_template('hospital.html', username=session['username'], hospital=hospital)
     return redirect(url_for('Index'))
 
 @app.route("/logout")

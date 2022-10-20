@@ -35,25 +35,34 @@
             <table class="table table-striped text-center">
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>โรงพยาบาล</th>
+                        <th>ที่อยู่</th>
                         <th>ติดต่อ</th>
                         <th>จำนวนเตียงว่าง</th>
 
                     </tr>
                 </thead>
-                <!-- <tbody>
-                    {% for data in data %}
+                <tbody>
+                    {% for hospital in hospital %}
                     <tr>
-                        <th>{{data['num']}}</th>
-                        <td>{{data['faculty']}}</td>
-                        <td>{{data['infected']}}</td>
+                        <th>{{hospital['name']}}</th>
+                        <td>{{hospital['address']}}</td>
+                        <td>{{hospital['phone']}}</td>
+                        <td>{{hospital['bed']}}</td>
                     </tr>
                     {% endfor %}
-                </tbody> -->
+                </tbody>
             </table>
         </div><!-- End: Features Cards -->
     </section>
 
+    <section class="py-1" style="background-color:rgb(245, 245, 245);">
+      <div class="container text-center py-5" style="margin-bottom: 0px;margin-top: -20px;">
+          <p class="mb-4" style="font-size: 2rem;text-align: left;">โรค&nbsp;<span class="bg-success-light p-1"><strong>โควิด-19</strong></span>&nbsp;คืออะไร?</p>
+          <p style="text-align: left;"><span style="color: rgb(60, 66, 69);">โควิด 19 คือโรคติดต่อซึ่งเกิดจากไวรัสโคโรนาชนิดที่มีการค้นพบล่าสุด ไวรัสและโรคอุบัติใหม่นี้ไม่เป็นที่รู้จักเลยก่อนที่จะมีการระบาดในเมืองอู่ฮั่น ประเทศจีน ในเดือนธันวาคมปี 2019 <br>ในขณะนี้โรคโควิด 19 เกิดการระบาดครั้งใหญ่ ส่งผลกระทบแก่หลายประเทศทั่วโลก</span></p>
+          <p style="text-align: left;"><span style="color: rgb(60, 66, 69);">อาการทั่วไปของโรคโควิด 19 ที่พบมากที่สุดคือ ไข้ ไอ ลิ้นไม่รับรส จมูกไม่ได้กลิ่น และอ่อนเพลีย อาการที่พบน้อยกว่าแต่อาจมีผลต่อผู้ป่วยบางรายคือ ปวดเมื่อย ปวดหัว คัดจมูก น้ำมูกไหล <br> เจ็บคอ ท้องเสีย ตาแดง หรือผื่นตามผิวหนัง หรือสีผิวเปลี่ยนตามนิ้วมือนิ้วเท้า อาการเหล่านี้มักจะไม่รุนแรงนักและค่อยๆเริ่มทีละน้อย บางรายติดเชื้อแต่มีอาการไม่รุนแรง</span></p>
+          <p style="text-align: right;font-style: italic;">ที่มา :&nbsp;<a href="https://www.who.int/thailand/emergencies/novel-coronavirus-2019/q-a-on-covid-19/q-a-on-covid-19-general" target="_blank" style="text-decoration:none; color:black;">World Health Organization Thailand</a></p>
+      </div>
+    </section>
 {% endblock %}
 
