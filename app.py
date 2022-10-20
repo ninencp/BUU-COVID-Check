@@ -66,6 +66,16 @@ def Faqs():
 
 @app.route("/infected", methods=['POST','GET'])
 def Infected():
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID GROUP BY faculties.name")
+    covidPlace = cursor.fetchall()
+    print(covidPlace)
+
+    # data=[]
+    # for row in covidPlace:
+    #     data.append
 #     # try:
 #         conn = mysql.connect()
 #         cursor = conn.cursor(pymysql.cursors.DictCursor)
