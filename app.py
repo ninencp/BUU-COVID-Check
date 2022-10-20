@@ -215,6 +215,13 @@ def MemFaq():
         return render_template('faq_members.html', username=session['username'])
     return redirect(url_for('Index'))
 
+@app.route("/hospital")
+def hospital():
+    # Check if user is logged in
+    if 'loggedin' in session:
+        # if user logged in show them homepage
+        return render_template('hospital.html', username=session['username'])
+    return redirect(url_for('Index'))
 
 @app.route("/logout")
 def Logout():
