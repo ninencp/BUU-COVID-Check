@@ -1,6 +1,6 @@
 {% extends "layout_members.html" %}
-{% block title %}Infected{% endblock %}
-{% block nav2 %}<a class="nav-link me-lg-3 active bg-transparent" href="{{ url_for('Infected') }}">ตรวจสอบจำนวนผู้ติดเชื้อ</a>{% endblock %}
+{% block title %}Hospital{% endblock %}
+{% block nav3 %}<a class="nav-link me-lg-3 active bg-transparent" href="{{ url_for('hospital') }}">ตรวจสอบจำนวนเตียง</a>{% endblock %}
 {% block body %}
     <!-- Header -->
     <header class="masthead">
@@ -36,11 +36,13 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>สถานที่</th>
-                        <th>จำนวนผู้ติดเชื้อ</th>
+                        <th>โรงพยาบาล</th>
+                        <th>ติดต่อ</th>
+                        <th>จำนวนเตียงว่าง</th>
+
                     </tr>
                 </thead>
-                <tbody>
+                <!-- <tbody>
                     {% for data in data %}
                     <tr>
                         <th>{{data['num']}}</th>
@@ -48,23 +50,10 @@
                         <td>{{data['infected']}}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
+                </tbody> -->
             </table>
-            <br>
-            <div class="fs-2 mb-3">
-                <i class="bi bi-people-fill" style="color:#00b779"></i>
-                <span class="text-black" style="font-size: 25px;">จำนวนผู้ติดเชื้อทั้งหมดภายในพื้นที่มหาวิทยาลัยบูรพา</span>
-                <p style="font-size:25px">&emsp;&ensp;&nbsp;{{num['num']}} ราย</p>
-            </div>
         </div><!-- End: Features Cards -->
     </section>
-    <section class="py-1" style="background-color:rgb(245, 245, 245);">
-        <div class="container text-center py-5" style="margin-bottom: 0px;margin-top: -20px;">
-            <p class="mb-4" style="font-size: 2rem;text-align: left;">โรค&nbsp;<span class="bg-success-light p-1"><strong>โควิด-19</strong></span>&nbsp;คืออะไร?</p>
-            <p style="text-align: left;"><span style="color: rgb(60, 66, 69);">โควิด 19 คือโรคติดต่อซึ่งเกิดจากไวรัสโคโรนาชนิดที่มีการค้นพบล่าสุด ไวรัสและโรคอุบัติใหม่นี้ไม่เป็นที่รู้จักเลยก่อนที่จะมีการระบาดในเมืองอู่ฮั่น ประเทศจีน ในเดือนธันวาคมปี 2019 <br>ในขณะนี้โรคโควิด 19 เกิดการระบาดครั้งใหญ่ ส่งผลกระทบแก่หลายประเทศทั่วโลก</span></p>
-            <p style="text-align: left;"><span style="color: rgb(60, 66, 69);">อาการทั่วไปของโรคโควิด 19 ที่พบมากที่สุดคือ ไข้ ไอ ลิ้นไม่รับรส จมูกไม่ได้กลิ่น และอ่อนเพลีย อาการที่พบน้อยกว่าแต่อาจมีผลต่อผู้ป่วยบางรายคือ ปวดเมื่อย ปวดหัว คัดจมูก น้ำมูกไหล <br> เจ็บคอ ท้องเสีย ตาแดง หรือผื่นตามผิวหนัง หรือสีผิวเปลี่ยนตามนิ้วมือนิ้วเท้า อาการเหล่านี้มักจะไม่รุนแรงนักและค่อยๆเริ่มทีละน้อย บางรายติดเชื้อแต่มีอาการไม่รุนแรง</span></p>
-            <p style="text-align: right;font-style: italic;">ที่มา :&nbsp;<a href="https://www.who.int/thailand/emergencies/novel-coronavirus-2019/q-a-on-covid-19/q-a-on-covid-19-general" target="_blank" style="text-decoration:none; color:black;">World Health Organization Thailand</a></p>
-        </div>
-    </section>
+
 {% endblock %}
 
