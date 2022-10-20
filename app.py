@@ -73,9 +73,12 @@ def Infected():
     covidPlace = cursor.fetchall()
     print(covidPlace)
 
-    # data=[]
-    # for row in covidPlace:
-    #     data.append
+    data=[]
+    for row in covidPlace:
+        data.append({
+                    'faculty':row['name'],
+                    'infected':row['total']
+                    })
 #     # try:
 #         conn = mysql.connect()
 #         cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -101,7 +104,7 @@ def Infected():
 
 #             likeString = "%" + searchValue + "%"
 #             cursor.execute("SELECT count(*) as allcount WHERE name LIKE %s OR position LIKE %s OR ")
-    return render_template("infected.html")
+    return render_template("infected.html",data=data)
 
 # http://127.0.0.1:3000/login <-- login page
 
