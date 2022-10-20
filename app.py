@@ -68,10 +68,20 @@ def Faqs():
 def Infected():
     conn = mysql.connect()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
+    search=''
 
-    cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID GROUP BY faculties.name DESC")
-    covidPlace = cursor.fetchall()
-    print(covidPlace)
+    if request.method == 'POST':
+        search = request.form['Search']   
+        likeString = "%" + search + "%"
+
+    if search != '':
+        cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID WHERE faculties.name LIKE %s GROUP BY faculties.name DESC", (likeString))
+        covidPlace = cursor.fetchall()
+        print(covidPlace)
+    else:
+        cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID GROUP BY faculties.name DESC")
+        covidPlace = cursor.fetchall()
+        print(covidPlace)        
 
     data=[]
     i=1
@@ -107,7 +117,7 @@ def Infected():
 
 #             likeString = "%" + searchValue + "%"
 #             cursor.execute("SELECT count(*) as allcount WHERE name LIKE %s OR position LIKE %s OR ")
-    return render_template("infected.html",data=data,range_data=len(data))
+    return render_template("infected.html",data=data)
 
 # http://127.0.0.1:3000/login <-- login page
 

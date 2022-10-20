@@ -18,12 +18,14 @@
 
     <div class="row justify-content-center">
         <div class="col-3">
-            <div class="input-group rounded">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
-                <span class="input-group-text border-0" style="background: 0;" id="search-addon" type="submit">
-                    <i class="fas fa-search"></i>
-                </span>
-            </div>
+            <form action="{{url_for('Infected')}}" method="post">
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" name="Search" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                    <span class="form-control input-group-text border-0" style="background: 0;" id="search-addon" type="submit">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
 
