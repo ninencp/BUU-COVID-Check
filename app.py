@@ -356,7 +356,7 @@ def upload_image():
         flash('No image selected for uploading')
         return redirect(request.url)
     if file and allowed_file(file.filename) and request.method == 'POST':
-        filename = secure_filename(file.filename)
+        filename = str(uID) + "_" + send + "." + file.filename.rsplit('.',1)[1].lower()
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         print('upload_image filename: ' + filename)
 
