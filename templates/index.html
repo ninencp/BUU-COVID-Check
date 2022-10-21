@@ -14,9 +14,12 @@
                         <div id="infected">จำนวนผู้ติดเชื้อ <span style="color:#EA5771">COVID-19</span> ทั้งหมดในมหาวิทยาลัยบูรพา</div><br>
                         <div class="text-center">
                             <!-- {% for data in value %} -->
-                            <span id="infected" class="badge bg-gradient-primary-to-secondary">{{data['COUNT(id)']}}&nbsp;&nbsp;&nbsp;&nbsp;ราย</span>               
+                            <span id="infected" class="badge bg-gradient-primary-to-secondary">{{data['COUNT(id)']}}&nbsp;&nbsp;&nbsp;&nbsp;ราย</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="btn bi bi-arrow-counterclockwise" style="font-size: 1.5rem; border:0;" onClick="window.location.reload();"></i>               
                             <!-- {% endfor %} -->
                         </div>
+                        <div></div>
                     </div>  
                 </div> 
                 
