@@ -78,11 +78,11 @@ def Infected():
         likeString = "%" + search + "%"
 
     if search != '':
-        cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID WHERE faculties.name LIKE %s GROUP BY faculties.name DESC", (likeString))
+        cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID WHERE faculties.name LIKE %s GROUP BY faculties.name ORDER BY total DESC", (likeString))
         covidPlace = cursor.fetchall()
         print(covidPlace)
     else:
-        cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID GROUP BY faculties.name DESC")
+        cursor.execute("SELECT faculties.name, COUNT(faculties.name) as total FROM atk INNER JOIN faculties ON atk.facultyID=faculties.ID GROUP BY faculties.name ORDER BY total DESC")
         covidPlace = cursor.fetchall()
         print(covidPlace)        
 
