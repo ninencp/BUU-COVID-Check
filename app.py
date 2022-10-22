@@ -417,7 +417,20 @@ def AdminLogin():
 
 @app.route("/admin/dashboard")
 def dashboard():
-    return render_template("dashboard.html")   
+    if 'loggedin' in session:
+        # if user logged in show them homepage
+        return render_template('dashboard.html', username=session['username'])
+    # if user isn't logged in return to login page
+    return redirect(url_for('AdminLogin'))
+
+@app.route("/admin/logout")
+def AdminLogout():
+    # Remove session data. This will log user out.
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    # Redirect to Login Page
+    return redirect(url_for('AdMinLogin'))
 
 # start app
 if __name__ == "__main__":
