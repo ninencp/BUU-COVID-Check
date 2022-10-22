@@ -382,37 +382,38 @@ def upload_image():
 #--------------------------------------------------------------------#
 
 # admin section
-@app.route("/admin/login")
+@app.route("/admin/login", methods=['GET','POST'])
 def AdminLogin():
-#     # Connect to database server
-#     conn = mysql.connect()
-#     cursor = conn.cursor(pymysql.cursors.DictCursor)
+    # Connect to database server
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
 
-#     # Message if something wrong
-#     msg = ''
+    # Message if something wrong
+    msg = ''
 
-#     # If "username" and "password" POST requests exist (user submitted form)
-#     if request.method == "POST" and 'username' in request.form and 'password' in request.form :
-#         # Create variable for easy access (don't have to type request.form['username'])
-#         username = request.form['username']
-#         password = request.form['password']
-#         # Check if accounts exist in MySQL
-#         cursor.execute("SELECT * FROM accounts WHERE username = %s AND password = %s", (username, password))
-#         # Fetch one record
-#         account = cursor.fetchone()
+    # If "username" and "password" POST requests exist (user submitted form)
+    if request.method == "POST" and 'adminUsername' in request.form and 'adminPassword' in request.form :
+        # Create variable for easy access (don't have to type request.form['username'])
+        username = request.form['adminUsername']
+        password = request.form['adminPassword']
+        # Check if accounts exist in MySQL
+        cursor.execute("SELECT * FROM admin WHERE username = %s AND password = %s", (username, password))
+        # Fetch one record
+        account = cursor.fetchone()
 
-#         # If account exists in database
-#         if account:
-#             # Create session data to access this data in other routes
-#             session['loggedin'] = True
-#             session['id'] = account['id']
-#             session['username'] = account['username']
-#             # Redirect to home page
-#             # return 'Logged in successfully'
-#             return redirect((url_for('Home')))
-#         else:
-#             msg = 'Incorrect username or password'
-    return render_template("admin_login.html")
+        # If account exists in database
+        if account:
+            # Create session data to access this data in other routes
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['username'] = account['username']
+            # Redirect to home page
+            # return 'Logged in successfully'
+            return redirect((url_for('dashboard')))
+        else:
+            msg = 'Incorrect username or password'
+            print('msg:',msg)
+    return render_template("admin_login.html", msg=msg)
 
 @app.route("/admin/dashboard")
 def dashboard():
