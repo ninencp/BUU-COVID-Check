@@ -430,7 +430,7 @@ def AdminLogout():
     session.pop('id', None)
     session.pop('username', None)
     # Redirect to Login Page
-    return redirect(url_for('AdMinLogin'))
+    return redirect(url_for('AdminLogin'))
 
 # start app
 if __name__ == "__main__":
