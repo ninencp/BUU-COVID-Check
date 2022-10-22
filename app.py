@@ -417,9 +417,22 @@ def AdminLogin():
 
 @app.route("/admin/dashboard")
 def dashboard():
+
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    cursor.execute("SELECT COUNT(id) as totalID FROM accounts")
+    id = cursor.fetchone()
+
+    cursor.execute("SELECT COUNT(id) as totalInfected FROM atk")
+    infected = cursor.fetchone()
+
+    cursor.execute("SELECT bed as totalBed FROM hospital")
+    bed = cursor.fetchone()  
+    
     if 'loggedin' in session:
         # if user logged in show them homepage
-        return render_template('dashboard.html', username=session['username'])
+        return render_template('dashboard.html', username=session['username'], id=id['totalID'], infected=infected['totalInfected'], bed=bed['totalBed'])
     # if user isn't logged in return to login page
     return redirect(url_for('AdminLogin'))
 
