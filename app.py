@@ -414,6 +414,10 @@ def upload_image():
 #             msg = 'Incorrect username or password'
 #     return render_template("login.html", msg=msg)
 
+@app.route("/admin/dashboard")
+def dashboard():
+    return render_template("dashboard.html")   
+
 # start app
 if __name__ == "__main__":
     app.run(port=3000, debug=True)
