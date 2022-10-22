@@ -382,8 +382,8 @@ def upload_image():
 #--------------------------------------------------------------------#
 
 # admin section
-# @app.route("/admin/login")
-# def AdminLogin():
+@app.route("/admin/login")
+def AdminLogin():
 #     # Connect to database server
 #     conn = mysql.connect()
 #     cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -412,7 +412,7 @@ def upload_image():
 #             return redirect((url_for('Home')))
 #         else:
 #             msg = 'Incorrect username or password'
-#     return render_template("login.html", msg=msg)
+    return render_template("admin_login.html")
 
 @app.route("/admin/dashboard")
 def dashboard():
