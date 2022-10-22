@@ -41,20 +41,18 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">BUU COVID-19 Check <sup>Admin</sup></h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="{{ url_for('AdminLogin') }}" method="post">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter username">
+                                                id="adminUsername" placeholder="Enter username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="adminPassword" placeholder="Password">
                                         </div>
                                         <br>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
+                                        <div id="msg" style="color:orangered">{{ msg }}</div>
                                 </div>
                             </div>
                         </div>

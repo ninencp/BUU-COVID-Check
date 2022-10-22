@@ -82,7 +82,7 @@ mycursor = mydb.cursor()
 #       ]
 # mycursor.executemany(sql,val)
 
-mycursor.execute("CREATE TABLE hospital (id int PRIMARY KEY AUTO_INCREMENT, name varchar(255), phone varchar(10), address varchar(255), bed int)")
+# mycursor.execute("CREATE TABLE hospital (id int PRIMARY KEY AUTO_INCREMENT, name varchar(255), phone varchar(10), address varchar(255), bed int)")
 
 # mycursor.execute("CREATE TABLE admin (username varchar(50) PRIMARY KEY, password varchar(50), name varchar(50))")
 
@@ -100,14 +100,14 @@ mycursor.execute("CREATE TABLE hospital (id int PRIMARY KEY AUTO_INCREMENT, name
 # mycursor.execute("ALTER TABLE atk ADD end_date date")
 
 # mycursor.execute("DROP TABLE hospital")
-mycursor.execute("INSERT INTO hospital (name, phone, address, bed) VALUES ('โรงพยาบาลมหาวิทยาลัยบูรพา','034745802','169 ถนนลงหาดบางแสน ตำบลแสนสุข อำเภอเมืองชลบุรี จังหวัดชลบุรี 20131', '450')")
+# mycursor.execute("INSERT INTO hospital (name, phone, address, bed) VALUES ('โรงพยาบาลมหาวิทยาลัยบูรพา','034745802','169 ถนนลงหาดบางแสน ตำบลแสนสุข อำเภอเมืองชลบุรี จังหวัดชลบุรี 20131', '450')")
 
 
 # sql = 'INSERT INTO accounts (name, phone, email, username, password, conf_password) VALUES (%s, %s, %s, %s, %s, %s)'
 # val = ('Natchapol Nillaphun','0624246668', 'ninencp01@gmail.com','nine','123456','123456')
 # mycursor.execute(sql, val)
 
-
+mycursor.execute("INSERT INTO admin (username, password, name) VALUES ('admin','AdMiN12344321_','Admin')")
 
 
 mydb.commit()
