@@ -448,19 +448,19 @@ def AdminLogout():
     # Redirect to Login Page
     return redirect(url_for('AdminLogin'))
 
-# @app.route("admin/edit/<id>", methods=['GET','POST'])
-# def GetHospital(id):
-#     conn = mysql.connect()
-#     cursor = conn.cursor(pymysql.cursors.DictCursor)
+@app.route("/admin/edit/<hospitalID>", methods=['GET','POST'])
+def GetHospital(hospitalID):
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
 
-#     cursor.execute("SELECT * FROM admin WHERE id = %s", (id))
-#     data = cursor.fetchall()
-#     cursor.close()
-#     print(data[0])
-#     return render_template('update_bed.html', user=data[0])
+    cursor.execute("SELECT * FROM hospital WHERE id = %s", (hospitalID))
+    admin = cursor.fetchall()
+    cursor.close()
+    print(admin[0])
+    return render_template('update_bed.html', admin=admin[0])
 
-# @app.route("/update/<id>", methods=['POST'])
-# def Update(id):
+# @app.route("/update/<hospitalID>", methods=['POST'])
+# def Update(hospitalID):
 #     if request.method == 'POST':
 #         name = request.form['name']
 #         phone = request.form['phone']
