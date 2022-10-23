@@ -22,10 +22,10 @@
                                     <div class="mb-3" style="font-family: K2D;">{{admin.name}}</div>
                                     <div class="mb-3" style="font-family: K2D;">{{admin.phone}}</div>
                                     <div class="mb-3" style="font-family: K2D;">{{admin.address}}</div>
-                                    <form action="#" method="post">
+                                    <form action="/admin/update/{{admin.id}}" method="post">
                                         <div class="form-floating mb-3" style="font-family: K2D;">
-                                            <input type="text" class="form-control" id="name" placeholder="Your name" name="name" required>
-                                            <label for="name">จำนวนเตียงว่าง : {{admin.bed}}</label>
+                                            <input type="text" class="form-control" id="bed" placeholder="Your name" name="bed" required>
+                                            <label for="bed">จำนวนเตียงว่าง : {{admin.bed}}</label>
                                         </div>
                                         <div class="form-floating mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit">Update</button></div>
                                     </form>

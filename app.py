@@ -459,26 +459,22 @@ def GetHospital(hospitalID):
     print(admin[0])
     return render_template('update_bed.html', admin=admin[0])
 
-# @app.route("/update/<hospitalID>", methods=['POST'])
-# def Update(hospitalID):
-#     if request.method == 'POST':
-#         name = request.form['name']
-#         phone = request.form['phone']
-#         email = request.form['email']
+@app.route("/admin/update/<hospitalID>", methods=['POST'])
+def UpdateHospital(hospitalID):
+    if request.method == 'POST':
+        bed = request.form['bed']
 
-#         conn = mysql.connect()
-#         cursor = conn.cursor(pymysql.cursors.DictCursor)
+        conn = mysql.connect()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
 
-#         cursor.execute("""
-#                         UPDATE accounts 
-#                         SET name = %s,
-#                             phone = %s,
-#                             email = %s
-#                         WHERE id = %s
-#                         """, (name, phone, email, id))
-#         flash("Updated successfully")
-#         conn.commit()
-#         return redirect(url_for('Profile'))
+        cursor.execute("""
+                        UPDATE hospital 
+                        SET bed = %s
+                        WHERE id = %s
+                        """, (bed, hospitalID))
+        flash("Updated successfully")
+        conn.commit()
+        return redirect(url_for('dashboard'))
 
 # start app
 if __name__ == "__main__":
