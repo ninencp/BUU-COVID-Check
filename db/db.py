@@ -107,7 +107,10 @@ mycursor = mydb.cursor()
 # val = ('Natchapol Nillaphun','0624246668', 'ninencp01@gmail.com','nine','123456','123456')
 # mycursor.execute(sql, val)
 
-mycursor.execute("INSERT INTO admin (username, password, name) VALUES ('admin','AdMiN12344321_','Admin')")
+# mycursor.execute("INSERT INTO admin (username, password, name) VALUES ('admin','AdMiN12344321_','Admin')")
+
+# mycursor.execute("ALTER TABLE admin ADD hospitalID int")
+# mycursor.execute("ALTER TABLE admin add FOREIGN KEY (hospitalID) REFERENCES hospital(id)")
 
 
 mydb.commit()

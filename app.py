@@ -428,11 +428,14 @@ def dashboard():
     infected = cursor.fetchone()
 
     cursor.execute("SELECT bed as totalBed FROM hospital")
-    bed = cursor.fetchone()  
+    bed = cursor.fetchone()
     
     if 'loggedin' in session:
+        cursor.execute("SELECT * FROM admin where id=%s",session['id'])
+        admin = cursor.fetchall()
+        print(admin[0])
         # if user logged in show them homepage
-        return render_template('dashboard.html', username=session['username'], id=id['totalID'], infected=infected['totalInfected'], bed=bed['totalBed'])
+        return render_template('dashboard.html', username=session['username'], id=id['totalID'], infected=infected['totalInfected'], bed=bed['totalBed'],admin=admin[0])
     # if user isn't logged in return to login page
     return redirect(url_for('AdminLogin'))
 
@@ -444,6 +447,38 @@ def AdminLogout():
     session.pop('username', None)
     # Redirect to Login Page
     return redirect(url_for('AdminLogin'))
+
+# @app.route("admin/edit/<id>", methods=['GET','POST'])
+# def GetHospital(id):
+#     conn = mysql.connect()
+#     cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+#     cursor.execute("SELECT * FROM admin WHERE id = %s", (id))
+#     data = cursor.fetchall()
+#     cursor.close()
+#     print(data[0])
+#     return render_template('update_bed.html', user=data[0])
+
+# @app.route("/update/<id>", methods=['POST'])
+# def Update(id):
+#     if request.method == 'POST':
+#         name = request.form['name']
+#         phone = request.form['phone']
+#         email = request.form['email']
+
+#         conn = mysql.connect()
+#         cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+#         cursor.execute("""
+#                         UPDATE accounts 
+#                         SET name = %s,
+#                             phone = %s,
+#                             email = %s
+#                         WHERE id = %s
+#                         """, (name, phone, email, id))
+#         flash("Updated successfully")
+#         conn.commit()
+#         return redirect(url_for('Profile'))
 
 # start app
 if __name__ == "__main__":
