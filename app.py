@@ -433,9 +433,8 @@ def dashboard():
     cursor.execute("SELECT accounts.id, accounts.name, accounts.phone, accounts.email, atk.send_date, atk_img.name as img \
                     FROM ((accounts \
                     INNER JOIN atk ON accounts.id = atk.userID) \
-                    INNER JOIN atk_img ON atk.id = atk_img.aID) ORDER BY accounts.id DESC LIMIT 10")
+                    INNER JOIN atk_img ON atk.id = atk_img.aID) ORDER BY atk_img.id DESC LIMIT 10")
     user = cursor.fetchall()
-    print(user)
 
     if 'adminLoggedin' in session:
         cursor.execute("SELECT * FROM admin where id=%s",session['adminID'])
@@ -454,6 +453,27 @@ def AdminLogout():
     session.pop('username', None)
     # Redirect to Login Page
     return redirect(url_for('AdminLogin'))
+
+@app.route("/admin/members")
+def AdminMembers():
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    cursor.execute("SELECT accounts.id, accounts.name, accounts.phone, accounts.email, atk.send_date, atk_img.name as img \
+                    FROM ((accounts \
+                    INNER JOIN atk ON accounts.id = atk.userID) \
+                    INNER JOIN atk_img ON atk.id = atk_img.aID)")
+    user = cursor.fetchall()
+
+    if 'adminLoggedin' in session:
+        cursor.execute("SELECT * FROM admin where id=%s",session['adminID'])
+        admin = cursor.fetchall()
+        print(admin[0])
+        # if user logged in show them homepage
+        return render_template('dashboard.html', username=session['adminUsername'], admin=admin[0], user=user)
+    # if user isn't logged in return to login page
+    return redirect(url_for('AdminLogin'))
+
 
 @app.route("/admin/edit/<hospitalID>", methods=['GET','POST'])
 def GetHospital(hospitalID):
