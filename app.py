@@ -457,7 +457,7 @@ def GetHospital(hospitalID):
     admin = cursor.fetchall()
     cursor.close()
     print(admin[0])
-    return render_template('update_bed.html', admin=admin[0])
+    return render_template('update_bed.html', admin=admin[0], username=session['username'])
 
 @app.route("/admin/update/<hospitalID>", methods=['POST'])
 def UpdateHospital(hospitalID):
