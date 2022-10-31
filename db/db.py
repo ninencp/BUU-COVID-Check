@@ -88,7 +88,7 @@ mycursor = mydb.cursor()
 
 # mycursor.execute("CREATE TABLE atk (id int PRIMARY KEY AUTO_INCREMENT, userID int, send_date date, end_date date)")
 # mycursor.execute("ALTER TABLE atk CHANGE start send_date date")
-# mycursor.execute("CREATE TABLE atk_img (id int PRIMARY KEY AUTO_INCREMENT, aID int, name varchar(255), FOREIGN KEY (aID) REFERENCES atk(id))")
+# mycursor.execute("CREATE TABLE atk_img (id int PRIMARY KEY AUTO_INCREMENT, aID int, name varchar(255), FOREIGN KEY (aID) REFERENCES atk(id) ON DELETE CASCADE)")
 # mycursor.execute("DROP TABLE atk_img")
 # mycursor.execute("DROP TABLE atk")
 
@@ -112,5 +112,6 @@ mycursor = mydb.cursor()
 # mycursor.execute("ALTER TABLE admin ADD hospitalID int")
 # mycursor.execute("ALTER TABLE admin add FOREIGN KEY (hospitalID) REFERENCES hospital(id)")
 
+# mycursor.execute("ALTER TABLE atk_img ADD FOREIGN KEY (aID) REFERENCES atk(id)")
 
 mydb.commit()
