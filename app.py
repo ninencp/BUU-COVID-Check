@@ -379,6 +379,17 @@ def upload_image():
         flash('Allowed image types are - png, jpg, jpeg')
         return redirect(request.url)
 
+@app.route("/delete/<id>", methods=['GET','POST'])
+def Delete(id):
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    cursor.execute("SELECT * FROM accounts WHERE id = %s", (id))
+    data = cursor.fetchall()
+    cursor.close()
+    print(data[0])
+    return redirect(url_for('Profile'))    
+    
 #--------------------------------------------------------------------#
 
 # admin section
