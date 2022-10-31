@@ -76,7 +76,7 @@
                 <div id="hospital" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header" style="font-family:K2D">โรงพยาบาล</h6>
-                        <a class="collapse-item" href="/admin/edit/{{admin.hospitalID}}" style="font-family:K2D">อัปเดตจำนวนเตียง</a>
+                        {% block bed %}{% endblock %}
                         <!-- <a class="collapse-item" href="" style="font-family:K2D">เพิ่ม / ลบ โรงพยาบาล</a> -->
                     </div>
                 </div>
