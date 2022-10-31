@@ -433,7 +433,7 @@ def dashboard():
     cursor.execute("SELECT accounts.id, accounts.name, accounts.phone, accounts.email, atk.send_date, atk_img.name as img \
                     FROM ((accounts \
                     INNER JOIN atk ON accounts.id = atk.userID) \
-                    INNER JOIN atk_img ON atk.id = atk_img.aID) ORDER BY atk_img.id DESC LIMIT 10")
+                    INNER JOIN atk_img ON atk.id = atk_img.aID) ORDER BY atk.send_date DESC LIMIT 10")
     user = cursor.fetchall()
 
     if 'adminLoggedin' in session:
