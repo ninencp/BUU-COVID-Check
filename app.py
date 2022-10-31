@@ -404,9 +404,9 @@ def AdminLogin():
         # If account exists in database
         if account:
             # Create session data to access this data in other routes
-            session['loggedin'] = True
-            session['id'] = account['id']
-            session['username'] = account['username']
+            session['adminLoggedin'] = True
+            session['adminID'] = account['id']
+            session['adminUsername'] = account['username']
             # Redirect to home page
             # return 'Logged in successfully'
             return redirect((url_for('dashboard')))
@@ -435,13 +435,14 @@ def dashboard():
                     INNER JOIN atk ON accounts.id = atk.userID) \
                     INNER JOIN atk_img ON atk.id = atk_img.aID) ORDER BY accounts.id DESC LIMIT 10")
     user = cursor.fetchall()
+    print(user)
 
-    if 'loggedin' in session:
-        cursor.execute("SELECT * FROM admin where id=%s",session['id'])
+    if 'adminLoggedin' in session:
+        cursor.execute("SELECT * FROM admin where id=%s",session['adminID'])
         admin = cursor.fetchall()
         print(admin[0])
         # if user logged in show them homepage
-        return render_template('dashboard.html', username=session['username'], id=id['totalID'], infected=infected['totalInfected'], bed=bed['totalBed'],admin=admin[0], user=user)
+        return render_template('dashboard.html', username=session['adminUsername'], id=id['totalID'], infected=infected['totalInfected'], bed=bed['totalBed'],admin=admin[0], user=user)
     # if user isn't logged in return to login page
     return redirect(url_for('AdminLogin'))
 
@@ -463,7 +464,7 @@ def GetHospital(hospitalID):
     admin = cursor.fetchall()
     cursor.close()
     print(admin[0])
-    return render_template('update_bed.html', admin=admin[0], username=session['username'])
+    return render_template('update_bed.html', admin=admin[0], username=session['adminUsername'])
 
 @app.route("/admin/update/<hospitalID>", methods=['POST'])
 def UpdateHospital(hospitalID):
