@@ -1,0 +1,48 @@
+{% extends "layout_admin.html" %}
+{% block title %} Update bed {% endblock %}
+{% block content %}
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-xl-12 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">ATK Submit</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="">
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th style="font-family: K2D;">id</th>
+                                            <th style="font-family: K2D;">ชื่อ</th>
+                                            <th style="font-family: K2D;">เบอร์โทรศัพท์</th>
+                                            <th style="font-family: K2D;">อีเมล</th>
+                                            <th style="font-family: K2D;">วันที่ส่งผล</th>
+                                            <th style="font-family: K2D;">รูปภาพ</th>
+                    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user in user %}
+                                        <tr>
+                                            <td>{{user['id']}}</td>
+                                            <td>{{user['name']}}</td>
+                                            <td>{{user['phone']}}</td>
+                                            <td>{{user['email']}}</td>
+                                            <td>{{user['send_date']}}</td>
+                                            <td><img src="/static/assets/atk_submit/{{user['img']}}" width="200" height="200"></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
