@@ -56,6 +56,8 @@
                                     <div class="d-flex justify-content-start">
                                         {% if atk %}
                                             <a href="{{ url_for('Submit')}}" class="btn btn-primary shadow disabled" role="button">ส่งผลตรวจกรณีได้รับเชื้อ</a>
+                                            &emsp;
+                                            <a href="{{ url_for('Submit')}}" class="btn btn-danger shadow" role="button">ยกเลิกการส่ง</a>
                                         {% else %}
                                             <a href="{{ url_for('Submit')}}" class="btn btn-primary shadow" role="button">ส่งผลตรวจกรณีได้รับเชื้อ</a>
                                         {% endif %}
