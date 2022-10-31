@@ -85,8 +85,32 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
+                        <div class="">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>ชื่อ</th>
+                                        <th>เบอร์โทรศัพท์</th>
+                                        <th>อีเมล</th>
+                                        <th>วันที่ส่งผล</th>
+                                        <th>รูปภาพ</th>
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in user %}
+                                    <tr>
+                                        <td>{{user['id']}}</td>
+                                        <td>{{user['name']}}</td>
+                                        <td>{{user['phone']}}</td>
+                                        <td>{{user['email']}}</td>
+                                        <td>{{user['send_date']}}</td>
+                                        <td><img src="/static/assets/atk_submit/{{user['img']}}" alt=""></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
