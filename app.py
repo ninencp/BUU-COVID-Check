@@ -430,12 +430,18 @@ def dashboard():
     cursor.execute("SELECT bed as totalBed FROM hospital")
     bed = cursor.fetchone()
     
+    cursor.execute("SELECT accounts.id, accounts.name, accounts.phone, accounts.email, atk.send_date, atk_img.name as img \
+                    FROM ((accounts \
+                    INNER JOIN atk ON accounts.id = atk.userID) \
+                    INNER JOIN atk_img ON atk.id = atk_img.aID) ORDER BY accounts.id DESC LIMIT 10")
+    user = cursor.fetchall()
+
     if 'loggedin' in session:
         cursor.execute("SELECT * FROM admin where id=%s",session['id'])
         admin = cursor.fetchall()
         print(admin[0])
         # if user logged in show them homepage
-        return render_template('dashboard.html', username=session['username'], id=id['totalID'], infected=infected['totalInfected'], bed=bed['totalBed'],admin=admin[0])
+        return render_template('dashboard.html', username=session['username'], id=id['totalID'], infected=infected['totalInfected'], bed=bed['totalBed'],admin=admin[0], user=user)
     # if user isn't logged in return to login page
     return redirect(url_for('AdminLogin'))
 
