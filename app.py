@@ -384,10 +384,8 @@ def Delete(id):
     conn = mysql.connect()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
 
-    cursor.execute("SELECT * FROM accounts WHERE id = %s", (id))
-    data = cursor.fetchall()
-    cursor.close()
-    print(data[0])
+    cursor.execute("DELETE FROM atk WHERE userID = %s", (id))
+    conn.commit()
     return redirect(url_for('Profile'))    
     
 #--------------------------------------------------------------------#
