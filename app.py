@@ -300,7 +300,7 @@ def Update(id):
                             email = %s
                         WHERE id = %s
                         """, (name, phone, email, id))
-        flash("Updated successfully")
+        # flash("Updated successfully")
         conn.commit()
         return redirect(url_for('Profile'))
 
@@ -457,9 +457,9 @@ def dashboard():
 @app.route("/admin/logout")
 def AdminLogout():
     # Remove session data. This will log user out.
-    session.pop('loggedin', None)
-    session.pop('id', None)
-    session.pop('username', None)
+    session.pop('adminLoggedin', None)
+    session.pop('adminID', None)
+    session.pop('adminUsername', None)
     # Redirect to Login Page
     return redirect(url_for('AdminLogin'))
 
